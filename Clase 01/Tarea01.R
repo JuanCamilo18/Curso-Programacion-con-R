@@ -1,0 +1,37 @@
+
+################################################################################
+# TAREA 01: CURSO R
+
+# Nombre: Juan Camilo Panta Ipanaque
+################################################################################
+
+#------------------------------------------------------------------------------#
+# Calcular el resultado de multiplicar 11 por 88 sin usar ningún número. 
+#------------------------------------------------------------------------------#
+# Importante:
+# Si en su código hay uno o más números entonces la tarea tendrá 
+# el puntaje de 0.
+# Su código tiene que enviarlo como un archivo txt.
+
+#------------------------------------------------------------------------------#
+## SOLUCION:
+
+# Creamos un numero que se le asigne el numero once
+numeroUno <- length(c("a","b","c","d","e","f","g","h","i","j","k"))
+numeroUno
+
+# Creamos el otro numero que se le asigne el numero ochenta y ocho,
+# para eso Podemos multiplicar el vector anterior, por otro de ocho elementos
+
+numeroDos <- numeroUno * length(c("a","b","c","d","e","f","g","h"))
+numeroDos
+
+
+# Resultado problema
+resultado <- numeroUno * numeroDos
+resultado
+paste("El resultado de", numeroUno, "*", numeroDos, "es: ", resultado)
+
+
+
+
