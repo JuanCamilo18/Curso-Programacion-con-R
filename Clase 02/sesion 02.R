@@ -293,7 +293,7 @@ x[x!=0 | x>5]
 
 # Pertenece "%in%"
 
-5 %in% x
+5 %in% x #  pertenece a x?
 
 x %in% 5
 
@@ -302,10 +302,16 @@ x<-sample(c("A","B","C","D"),20,T)
 
 x=="A" | x=="B" | x=="C"
 
-x %in% c("A","B","C")
+x %in% c("A","B","C") # mejor
+
+# tambien && ... y ... ||
+
 
 #---
 # Para la posición tras cumplimiento de la condición lógica.
+
+x<-c(2,1,3,12,43,43,6,8,62,9,0,5,23,42,4,1,3)
+
 
 set.seed(12)
 ro<-sample(1:3000, 3000, T)
