@@ -22,7 +22,6 @@ datos <- data.frame(edad=sample(10:30, size = 100, replace = TRUE),
                     sexo=sample(c("Masculino","Femenino"), size = 100, replace = TRUE),
                     ingresos=sample(1000:5000, size = 100, replace = TRUE),
                     raza=sample(c("blanco","negro"), size = 100, replace = TRUE))
-
 View(datos) 
 
 sapply(datos, class) # Para saber las clases
@@ -90,7 +89,7 @@ datos[datos$edad>=24 & datos$raza=="negro",][1:7,]
 datos[1:20,][datos$edad>=24 & datos$raza=="negro",]
 
 # Usando función subset()
-
+# quiero comparacion logica de filas
 subset(datos, sexo=="Masculino")
 
 subset(datos, sexo=="Masculino" & raza=="blanco")
@@ -146,9 +145,10 @@ subset(datos, sexo=="Masculino", select = c("sexo","ingresos"))
 
 subset(datos, edad>20, select = -c(2,4))
 
+
 #---
 # Teniendo en consideración a los valores missing.
-
+set.seed(1234)
 df<-data.frame(edad=sample(c(10:30,NA), size = 100, replace = TRUE),
                sexo=sample(c("Masculino","Femenino",NA), size = 100, replace = TRUE),
                ingresos=sample(c(1000:5000,NA), size = 100, replace = TRUE),
@@ -158,13 +158,13 @@ df<-data.frame(edad=sample(c(10:30,NA), size = 100, replace = TRUE),
 # Solo datos completos...
 
 na.omit(df) # elimina los NA
-
+dim(na.omit(df)) # eliminó filas y solo quedaron
 
 df[is.na(df$edad),]
 
 df[is.na(df$sexo) & is.na(df$raza),]
 
-df[!is.na(df$edad),]
+df[!is.na(df$edad),] # df donde no halla na en edad
 
 df[!is.na(df$sexo), c("edad","raza")]
 
@@ -178,8 +178,22 @@ subset(df, !is.na(edad))
 
 subset(df, !is.na(sexo), select = c("edad","raza"))
 
+
+# que sean espacios en blanco, no na
+tt <- data.frame(x=sample(c("A","B",""),10,T),
+           y=sample(1:10,10,T))
+subset(tt, x=is.na(x))
+subset(tt, x=="")
+
+
 #---
 # Añadiendo filas y columnas a los data frame.
+# anteior bd
+set.seed(5)
+datos <- data.frame(edad=sample(10:30, size = 100, replace = TRUE),
+                    sexo=sample(c("Masculino","Femenino"), size = 100, replace = TRUE),
+                    ingresos=sample(1000:5000, size = 100, replace = TRUE),
+                    raza=sample(c("blanco","negro"), size = 100, replace = TRUE))
 
 # Añadiendo columnas.
 set.seed(6)
@@ -191,9 +205,10 @@ View(datos)
 
 str(datos)
 
-# Añadiendo filas.
-tail(datos)
 
+# Añadiendo filas.
+tail(datos) # vemos como son los datos
+# los datos tienen q tener el mismo str y  nombre de las variables
 z<-data.frame(edad=c(20,24),
               sexo=c("Femenino", "Femenino"),
               ingresos=c(3000,5000),
@@ -204,13 +219,22 @@ datos<-rbind(datos,z)
 
 View(datos)
 
+
 #--- 
 # Crear columnas. 
 
 df<-na.omit(df)
-df$ing_edad<-df$ingresos/df$edad
-df$h_negro<-df$sexo=="Masculino" & df$raza=="negro"
-df$h_negro_num<-as.numeric(df$h_negro)
+
+df$seccion <- paste(df$raza, df$edad) #union de 2 columnas
+
+df$ing_edad<-df$ingresos/df$edad # con numericos
+df$h_negro<-df$sexo=="Masculino" & df$raza=="negro" # si cumple v sino f
+df$h_negro_num<-as.numeric(df$h_negro) # convertir a numerico el vector logico
+df
+
+# otra forma
+df$dicot <- as.numeric(df$edad>=30 & df$sexo=="Masculino")
+df
 
 
 #---
@@ -219,15 +243,24 @@ df$h_negro_num<-as.numeric(df$h_negro)
 df<-data.frame(id=sample(1:1000,1000,T),
                ventas=sample(1000:4000, size = 1000, replace = TRUE))
 
-df<-df[with(df, order(df$id)),]
+# ordenamos para ver mejor los duplicados
+df<-df[with(df, order(df$id)),] # -df$id decreciente
 
 # De forma decreciente?...
 
-df$rep1<-duplicated(df$id)
+# se ve cual duplicados, toma el primero no duplicadp
+df$rep1<-duplicated(df$id) # todos los verdaderos se repiten, son duplicados
+df1 <- df[!duplicated(df$id),] # quedate con los falsos, (no repiten)
+
+# se ve cual duplicados, toma el ultimo no duplicadp
 df$rep2<-duplicated(df$id, fromLast = T)
+df2 <- df[!duplicated(df$id, fromLast = T),]
+
 df$rep3<-df$rep1==T | df$rep2==T
 
 
+# eliminar columna
+df$rep3 <- NULL
 
 
 
