@@ -32,6 +32,8 @@ imp_med2<-function(y){
   y<-ifelse(is.na(y),media,y)
   y
 }
+imp_med2(df$edad)
+
 
 imp_med3<-function(x,y){
   media<-mean(x[,y],na.rm=T)
@@ -68,7 +70,7 @@ imp_med5<-function(y){
 imp_med5(df$sexo)
 
 
-# install.packages("modeest"), hllar moda
+# install.packages("modeest"), hallar moda
 library(modeest)
 #imputar por la moda
 imp_med6<-function(y){
@@ -156,9 +158,11 @@ monedas<-function(x="bitcoin"){
 monedas()
 
 #------------------
-
+# sumar un numero a todas las columnas
 dd<-data.frame(x=sample(1:100,50,T),
-               y=sample(2:100,50,T))
+               y=sample(2:100,50,T),
+               z=sample(1:100,50,T),
+               a=sample(1:100,50,T))
 
 sumador<-function(x,ncol=2){
   for (i in 1:ncol) {
@@ -166,6 +170,8 @@ sumador<-function(x,ncol=2){
   }
   x
 }
+sumador(dd)
+
 
 mediador<-function(x,ncol=2){
   for (i in 1:ncol) {
@@ -173,6 +179,7 @@ mediador<-function(x,ncol=2){
   }
   x
 }
+mediador(dd)
 
 #---
 sumador2<-function(x,cols=2){
