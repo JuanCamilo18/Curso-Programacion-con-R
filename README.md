@@ -17,7 +17,7 @@ Curso de Programación y Manejo de Bases de Datos en R
 
 **Sesión 07: Crear Funciones I:** [Clase 07](https://github.com/JuanCamilo18/Curso-Programacion-con-R/tree/main/Clase07)
 
-**Sesión 08: Crear Funciones II:** [Clase 08]
+**Sesión 08: Crear Funciones II:** [Clase 08](https://github.com/JuanCamilo18/Curso-Programacion-con-R/tree/main/Clase08)
 
 **Sesión 09: Dplyr:** [Clase 09]
 
