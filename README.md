@@ -19,6 +19,11 @@ Curso de Programación y Manejo de Bases de Datos en R
 
 **Sesión 08: Crear Funciones II:** [Clase 08](https://github.com/JuanCamilo18/Curso-Programacion-con-R/tree/main/Clase08)
 
-**Sesión 09: Dplyr:** [Clase 09]
+**Sesión 09: Dplyr:** [Clase 09](https://github.com/JuanCamilo18/Curso-Programacion-con-R/tree/main/Clase09)
 
+**Sesión 10: Crear funciones usando Dplyr:** [Clase 10](https://github.com/JuanCamilo18/Curso-Programacion-con-R/tree/main/Clase10)
+
+**Sesión 11: Expresiones Regulares I:** [Clase 11](https://github.com/JuanCamilo18/Curso-Programacion-con-R/tree/main/Clase11)
+
+**Sesión 12: Expresiones Regulares II:** [Clase 12](https://github.com/JuanCamilo18/Curso-Programacion-con-R/tree/main/Clase12)
 
